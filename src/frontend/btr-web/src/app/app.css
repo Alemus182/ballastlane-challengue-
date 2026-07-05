@@ -1,0 +1,50 @@
+:host {
+	color: #1f2937;
+	display: block;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	min-height: 100dvh;
+}
+
+.app-shell {
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 1rem;
+}
+
+.topbar {
+	align-items: center;
+	border-bottom: 1px solid #e5e7eb;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: space-between;
+	padding-bottom: 0.75rem;
+}
+
+.topbar h1 {
+	font-size: 1.25rem;
+	margin: 0;
+}
+
+.topnav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.topnav a {
+	border-radius: 0.25rem;
+	color: #374151;
+	padding: 0.25rem 0.5rem;
+	text-decoration: none;
+}
+
+.topnav a.active {
+	background-color: #dbeafe;
+	color: #1d4ed8;
+	font-weight: 600;
+}
+
+.content {
+	padding: 1rem 0;
+}

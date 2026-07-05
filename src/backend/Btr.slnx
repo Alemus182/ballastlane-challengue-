@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Btr.Api/Btr.Api.csproj" />
+  <Project Path="Btr.Application/Btr.Application.csproj" />
+  <Project Path="Btr.Domain/Btr.Domain.csproj" />
+  <Project Path="Btr.Infrastructure/Btr.Infrastructure.csproj" />
+  <Project Path="Btr.IntegrationTests/Btr.IntegrationTests.csproj" />
+  <Project Path="Btr.UnitTests/Btr.UnitTests.csproj" />
+</Solution>

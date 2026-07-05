@@ -1,0 +1,15 @@
+<div class="app-shell">
+  <header class="topbar">
+    <h1>{{ title }}</h1>
+    <nav class="topnav" aria-label="Main navigation">
+      <a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Login</a>
+      <a routerLink="/register" routerLinkActive="active">Register</a>
+      <a routerLink="/tournaments" routerLinkActive="active">Tournaments</a>
+      <a routerLink="/registrations" routerLinkActive="active">Registrations</a>
+    </nav>
+  </header>
+
+  <main class="content" role="main">
+    <router-outlet></router-outlet>
+  </main>
+</div>
