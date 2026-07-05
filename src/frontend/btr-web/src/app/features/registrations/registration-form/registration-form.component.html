@@ -1,0 +1,45 @@
+<section class="form-card">
+  <h2>{{ isEditMode ? 'Edit Registration' : 'New Registration' }}</h2>
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <label for="tournament">Tournament *</label>
+    <select id="tournament" formControlName="tournamentId">
+      <option value="">-- Select a tournament --</option>
+      @for (tournament of tournaments; track tournament.id) {
+        <option [value]="tournament.id">{{ tournament.name }}</option>
+      }
+    </select>
+    @if (form.controls.tournamentId.touched && form.controls.tournamentId.invalid) {
+      <p class="error">Tournament is required.</p>
+    }
+
+    <label for="playerName">Player Name *</label>
+    <input id="playerName" type="text" formControlName="playerName" />
+    @if (form.controls.playerName.touched && form.controls.playerName.invalid) {
+      <p class="error">Player name is required and must be at most 256 characters.</p>
+    }
+
+    <label for="nickname">Nickname</label>
+    <input id="nickname" type="text" formControlName="nickname" />
+    @if (form.controls.nickname.touched && form.controls.nickname.invalid) {
+      <p class="error">Nickname must be at most 128 characters.</p>
+    }
+
+    <label for="contactInfo">Contact Info *</label>
+    <input id="contactInfo" type="text" formControlName="contactInfo" />
+    @if (form.controls.contactInfo.touched && form.controls.contactInfo.invalid) {
+      <p class="error">Contact info is required and must be at most 512 characters.</p>
+    }
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Saving...' : 'Save' }}
+      </button>
+      <a routerLink="/registrations">Cancel</a>
+    </div>
+  </form>
+</section>

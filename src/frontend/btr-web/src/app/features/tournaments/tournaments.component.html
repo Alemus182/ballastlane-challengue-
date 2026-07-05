@@ -1,0 +1,70 @@
+<section class="tournaments-page">
+  <h2>Tournaments</h2>
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="create-form" novalidate>
+    <h3>Create Tournament</h3>
+
+    <label for="name">Name *</label>
+    <input id="name" type="text" formControlName="name" />
+    @if (form.controls.name.touched && form.controls.name.invalid) {
+      <p class="error">Name is required and must be at most 256 characters.</p>
+    }
+
+    <label for="location">Location *</label>
+    <input id="location" type="text" formControlName="location" />
+    @if (form.controls.location.touched && form.controls.location.invalid) {
+      <p class="error">Location is required and must be at most 512 characters.</p>
+    }
+
+    <label for="startDate">Start Date *</label>
+    <input id="startDate" type="date" formControlName="startDate" />
+    @if (form.controls.startDate.touched && form.controls.startDate.invalid) {
+      <p class="error">Start date is required.</p>
+    }
+
+    <label for="endDate">End Date *</label>
+    <input id="endDate" type="date" formControlName="endDate" />
+    @if (form.controls.endDate.touched && form.controls.endDate.invalid) {
+      <p class="error">End date is required.</p>
+    }
+
+    <button type="submit" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Saving...' : 'Create Tournament' }}
+    </button>
+  </form>
+
+  @if (isLoading) {
+    <p class="loading">Loading tournaments...</p>
+  }
+
+  @if (!isLoading && tournaments.length === 0) {
+    <p class="empty">No tournaments found.</p>
+  }
+
+  @if (!isLoading && tournaments.length > 0) {
+    <table class="tournaments-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (tournament of tournaments; track tournament.id) {
+          <tr>
+            <td>{{ tournament.name }}</td>
+            <td>{{ tournament.location }}</td>
+            <td>{{ tournament.startDate | date: 'mediumDate' }}</td>
+            <td>{{ tournament.endDate | date: 'mediumDate' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>

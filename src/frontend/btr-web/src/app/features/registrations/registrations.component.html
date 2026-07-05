@@ -1,0 +1,53 @@
+<section class="registrations-container">
+  <div class="registrations-header">
+    <h2>Registrations</h2>
+    <a routerLink="/registrations/new" class="btn-new">New Registration</a>
+  </div>
+
+  @if (isLoading) {
+    <p class="loading">Loading registrations...</p>
+  }
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  @if (!isLoading && registrations.length === 0) {
+    <p class="empty">No registrations found.</p>
+  }
+
+  @if (!isLoading && registrations.length > 0) {
+    <table class="registrations-table">
+      <thead>
+        <tr>
+          <th>Player Name</th>
+          <th>Nickname</th>
+          <th>Contact Info</th>
+          <th>Tournament ID</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (registration of registrations; track registration.id) {
+          <tr>
+            <td>{{ registration.playerName }}</td>
+            <td>{{ registration.nickname || '—' }}</td>
+            <td>{{ registration.contactInfo }}</td>
+            <td>{{ registration.tournamentId }}</td>
+            <td>{{ registration.createdAtUtc | date: 'short' }}</td>
+            <td class="actions">
+              <a [routerLink]="['/registrations', registration.id, 'edit']" class="btn-edit">Edit</a>
+              <button
+                (click)="delete(registration.id)"
+                class="btn-delete"
+                [disabled]="isDeletingIds.has(registration.id)">
+                {{ isDeletingIds.has(registration.id) ? 'Deleting...' : 'Delete' }}
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>

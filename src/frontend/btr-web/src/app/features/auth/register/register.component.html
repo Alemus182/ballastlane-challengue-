@@ -1,0 +1,26 @@
+<section class="auth-card">
+  <h2>Register</h2>
+  <p class="hint">Create your organizer account.</p>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <label for="register-username">Username or email</label>
+    <input id="register-username" type="text" formControlName="usernameOrEmail" />
+    @if (form.controls.usernameOrEmail.touched && form.controls.usernameOrEmail.invalid) {
+      <p class="error">Username or email is required and must be at most 256 characters.</p>
+    }
+
+    <label for="register-password">Password</label>
+    <input id="register-password" type="password" formControlName="password" />
+    @if (form.controls.password.touched && form.controls.password.invalid) {
+      <p class="error">Password is required and must be at least 6 characters.</p>
+    }
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    <button type="submit" [disabled]="isSubmitting">{{ isSubmitting ? 'Creating account...' : 'Register' }}</button>
+  </form>
+
+  <p class="hint">Already registered? <a routerLink="/login">Back to login</a>.</p>
+</section>

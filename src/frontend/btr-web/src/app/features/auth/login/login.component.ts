@@ -9,87 +9,8 @@ import { AuthService } from '../auth.service';
   selector: 'app-login',
   standalone: true,
   imports: [ReactiveFormsModule, RouterLink],
-  template: `
-    <section class="auth-card">
-      <h2>Login</h2>
-      @if (infoMessage) {
-        <p class="success">{{ infoMessage }}</p>
-      }
-      <p class="hint">Sign in to continue.</p>
-
-      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
-        <label for="login-username">Username or email</label>
-        <input id="login-username" type="text" formControlName="usernameOrEmail" />
-        @if (form.controls.usernameOrEmail.touched && form.controls.usernameOrEmail.invalid) {
-          <p class="error">Username or email is required and must be at most 256 characters.</p>
-        }
-
-        <label for="login-password">Password</label>
-        <input id="login-password" type="password" formControlName="password" />
-        @if (form.controls.password.touched && form.controls.password.invalid) {
-          <p class="error">Password is required and must be at least 6 characters.</p>
-        }
-
-        @if (errorMessage) {
-          <p class="error">{{ errorMessage }}</p>
-        }
-
-        <button type="submit" [disabled]="isSubmitting">{{ isSubmitting ? 'Signing in...' : 'Login' }}</button>
-      </form>
-
-      <p class="hint">No account yet? <a routerLink="/register">Create one</a>.</p>
-    </section>
-  `,
-  styles: [
-    `
-      .auth-card {
-        border: 1px solid #e5e7eb;
-        border-radius: 0.5rem;
-        max-width: 28rem;
-        padding: 1rem;
-      }
-
-      form {
-        display: grid;
-        gap: 0.5rem;
-      }
-
-      input {
-        border: 1px solid #d1d5db;
-        border-radius: 0.375rem;
-        padding: 0.5rem;
-      }
-
-      button {
-        background: #2563eb;
-        border: 0;
-        border-radius: 0.375rem;
-        color: #ffffff;
-        cursor: pointer;
-        margin-top: 0.5rem;
-        padding: 0.5rem 0.75rem;
-      }
-
-      button:disabled {
-        cursor: default;
-        opacity: 0.7;
-      }
-
-      .hint {
-        color: #4b5563;
-      }
-
-      .error {
-        color: #b91c1c;
-        margin: 0;
-      }
-
-      .success {
-        color: #166534;
-        margin: 0 0 0.5rem;
-      }
-    `
-  ]
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
   private readonly formBuilder = inject(FormBuilder);

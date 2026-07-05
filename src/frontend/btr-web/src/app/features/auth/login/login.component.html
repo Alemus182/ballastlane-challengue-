@@ -1,0 +1,29 @@
+<section class="auth-card">
+  <h2>Login</h2>
+  @if (infoMessage) {
+    <p class="success">{{ infoMessage }}</p>
+  }
+  <p class="hint">Sign in to continue.</p>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <label for="login-username">Username or email</label>
+    <input id="login-username" type="text" formControlName="usernameOrEmail" />
+    @if (form.controls.usernameOrEmail.touched && form.controls.usernameOrEmail.invalid) {
+      <p class="error">Username or email is required and must be at most 256 characters.</p>
+    }
+
+    <label for="login-password">Password</label>
+    <input id="login-password" type="password" formControlName="password" />
+    @if (form.controls.password.touched && form.controls.password.invalid) {
+      <p class="error">Password is required and must be at least 6 characters.</p>
+    }
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    <button type="submit" [disabled]="isSubmitting">{{ isSubmitting ? 'Signing in...' : 'Login' }}</button>
+  </form>
+
+  <p class="hint">No account yet? <a routerLink="/register">Create one</a>.</p>
+</section>
