@@ -82,11 +82,12 @@ npm run build
 - The backend applies EF Core migrations automatically on startup (except in Testing environment).
 - Default local database file is `btr.local.db`.
 
+## Design Process
+See [docs/design-process.md](docs/design-process.md).
+
 ## AI Prompt (Task Management API)
 Related resources:
 - Prompt: [docs/task-management-api.prompt.md](docs/task-management-api.prompt.md)
 - Outcome notes: [docs/task-management-api-outcome.md](docs/task-management-api-outcome.md)
 - Generated project: `src/IA-prompt-outcome`
 
-## Design Process
-See [docs/design-process.md](docs/design-process.md).
