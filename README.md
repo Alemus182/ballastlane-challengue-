@@ -84,6 +84,7 @@ npm run build
 
 ## Design Process
 See [docs/design-process.md](docs/design-process.md).
+See [docs/us-tournament-registration.md](docs/us-tournament-registration.md).
 
 ## AI Prompt (Task Management API)
 Related resources:
