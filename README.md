@@ -84,6 +84,7 @@ npm run build
 
 ## AI Prompt (Task Management API)
 See [docs/task-management-api.prompt.md](docs/task-management-api.prompt.md).
+See [docs/task-management-api-outcome.md](docs/task-management-api-outcome.md).
 
 ## Design Process
 See [docs/design-process.md](docs/design-process.md).
