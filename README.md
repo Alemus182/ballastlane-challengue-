@@ -83,9 +83,10 @@ npm run build
 - Default local database file is `btr.local.db`.
 
 ## AI Prompt (Task Management API)
-See [docs/task-management-api.prompt.md](docs/task-management-api.prompt.md).
-See [docs/task-management-api-outcome.md](docs/task-management-api-outcome.md).
-Generated project output is in `src/IA-prompt-outcome`.
+Related resources:
+- Prompt: [docs/task-management-api.prompt.md](docs/task-management-api.prompt.md)
+- Outcome notes: [docs/task-management-api-outcome.md](docs/task-management-api-outcome.md)
+- Generated project: `src/IA-prompt-outcome`
 
 ## Design Process
 See [docs/design-process.md](docs/design-process.md).
